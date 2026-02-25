@@ -22,8 +22,8 @@ Ideal for:
 
 ## 📦 Included Scripts
 
-- `FloatingObject3D.cs`
-- `FloatingObject2D.cs`
+- FloatingObject3D.cs
+- FloatingObject2D.cs
 
 ---
 
