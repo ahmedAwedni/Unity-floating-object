@@ -60,3 +60,7 @@ A randomized phase offset is applied per instance to avoid identical synchronize
 Tested in Unity6+ (should work in most modern versions).
 
 ---
+
+## 📜 License
+
+MIT
