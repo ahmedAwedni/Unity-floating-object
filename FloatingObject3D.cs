@@ -45,4 +45,30 @@ public class FloatingObject3D : MonoBehaviour
     {
         startPosition = transform.position;
     }
+
+    // --- Gizmos Visualization ---
+    private void OnDrawGizmos()
+    {
+        // In the editor, startPosition isn't set until Play. 
+        // usage the current position as a preview base.
+        Vector3 basePos = Application.isPlaying ? startPosition : transform.position;
+        Vector3 direction = floatAxis.normalized;
+
+        Vector3 upBound = basePos + (direction * amplitude);
+        Vector3 downBound = basePos - (direction * amplitude);
+
+        // Draw the movement track
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(upBound, downBound);
+
+        // Draw the limit markers
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(upBound, 0.1f);
+        Gizmos.DrawWireSphere(downBound, 0.1f);
+
+        // Draw a center "anchor" point
+        Gizmos.color = Color.white;
+        Gizmos.DrawCube(basePos, new Vector3(0.05f, 0.05f, 0.05f));
+    }
 }
+
